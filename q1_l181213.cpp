@@ -1,6 +1,6 @@
 #include"q1_l181213.h"
 using namespace std;
-bankaccount::bankaccount()
+bankaccount::bankaccount()//intilizng the values
 {
 	string name=" ";
 	id=0;
@@ -11,7 +11,7 @@ nooftrans=0;
 transaction=nullptr;
 transaction=new float[tlimit];
 }
-bankaccount::bankaccount(string n,int i_d)
+bankaccount::bankaccount(string n,int i_d)//intilizng variable and assigning the name and id 
 {
 name=n;
 if(i_d>0)
@@ -27,28 +27,28 @@ bal_limit=200000 ;
 transaction=nullptr;
 transaction=new float[tlimit];
 }
-void bankaccount::print()
+void bankaccount::print()//print the whole program
 {
 	if(name=="")
 	{
-		cout<<"name is not present";
+		cout<<"name is not present"<<endl;
 	}
 	else
-		cout<<"Name:"<<name;
+		cout<<"Name:"<<name<<endl;
 	if(id==0)
 	{
-	cout<<"id is not present &enter your id again ";
+	cout<<"id is not present &enter your id again "<<endl;
 	}
 	else
-		cout<<"id:"<<id;
-cout<<"your balance is:"<<balance;
-cout<<"no of transaction:"<<nooftrans;
+		cout<<"id:"<<id<<endl;
+cout<<"your balance is:"<<balance<<endl;
+cout<<"no of transaction:"<<nooftrans<<endl;
 for(int i=0;i<nooftrans;i++)
 {
-cout<<transaction[i];
+cout<<transaction[i]<<endl;
 }
 }
-void bankaccount::wihtdrawl(int amnt)
+void bankaccount::wihtdrawl(int amnt)//decrement the amount you want from current balace
 {
 if (amnt>bal_limit)
 {
@@ -64,7 +64,7 @@ nooftrans++;
 else
 	translimitincrement();
 }
-void bankaccount::translimitincrement()
+void bankaccount::translimitincrement()//increase in the momery of array
 {
 
 float*temp=nullptr;
@@ -82,7 +82,7 @@ transaction[i]=temp[i];
 }
 
 }
-void bankaccount::deposit(int amount)
+void bankaccount::deposit(int amount)//increment the amount you want from current balace
 {
 	if(amount+balance>=bal_limit)
 	{
@@ -100,7 +100,7 @@ nooftrans++;
 else
 	translimitincrement();
 	}
-bankaccount::~bankaccount()
+bankaccount::~bankaccount()//delete the array
 {
 	delete [] transaction;
 	transaction=nullptr;
